@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TrackingVaccineService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TrackingVaccineService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfVaccine">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Vaccine" nillable="true" type="tns:Vaccine" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVaccine" nillable="true" type="tns:ArrayOfVaccine" />
+  <xs:complexType name="Vaccine">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="registered_date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="registered_number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="status" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Vaccine" nillable="true" type="tns:Vaccine" />
+  <xs:complexType name="ArrayOfVaccineUsage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VaccineUsage" nillable="true" type="tns:VaccineUsage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVaccineUsage" nillable="true" type="tns:ArrayOfVaccineUsage" />
+  <xs:complexType name="VaccineUsage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="resident_nik" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="used_at" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="vaccine_code" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VaccineUsage" nillable="true" type="tns:VaccineUsage" />
+</xs:schema>

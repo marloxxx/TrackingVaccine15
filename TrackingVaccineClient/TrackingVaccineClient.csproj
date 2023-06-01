@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -45,10 +44,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -99,9 +106,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -112,21 +116,93 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Connected Services\AuthenticationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\BPOMService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\GovermentService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProcedurService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\BPOMController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HospitalController.cs" />
+    <Compile Include="Controllers\ProducerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\AuthenticationService\AuthenticationService.disco" />
+    <None Include="Connected Services\AuthenticationService\configuration91.svcinfo" />
+    <None Include="Connected Services\AuthenticationService\configuration.svcinfo" />
+    <None Include="Connected Services\AuthenticationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\AuthenticationService\TrackingVaccineClient.AuthenticationService.Resident.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\BPOMService\BPOMService.wsdl" />
+    <None Include="Connected Services\BPOMService\BPOMService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BPOMService\BPOMService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\GovermentService\GovermentService.wsdl" />
+    <None Include="Connected Services\GovermentService\GovermentService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\GovermentService\GovermentService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BPOMService\BPOMService.disco" />
+    <None Include="Connected Services\BPOMService\configuration91.svcinfo" />
+    <None Include="Connected Services\BPOMService\configuration.svcinfo" />
+    <None Include="Connected Services\BPOMService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\GovermentService\GovermentService.disco" />
+    <None Include="Connected Services\GovermentService\configuration91.svcinfo" />
+    <None Include="Connected Services\GovermentService\configuration.svcinfo" />
+    <None Include="Connected Services\GovermentService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ProcedurService\ProcedurService.disco" />
+    <None Include="Connected Services\ProcedurService\configuration91.svcinfo" />
+    <None Include="Connected Services\ProcedurService\configuration.svcinfo" />
+    <None Include="Connected Services\ProcedurService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Content\backend\css\styles.css" />
+    <Content Include="Content\backend\css\sweetalert.css" />
+    <Content Include="Content\backend\css\toastr.css" />
+    <Content Include="Content\backend\fonts\metropolis\SIL Open Font License.txt" />
+    <Content Include="Content\backend\img\backgrounds\bg-angles.svg" />
+    <Content Include="Content\backend\img\backgrounds\bg-pattern-shapes.png" />
+    <Content Include="Content\backend\img\backgrounds\bg-waves.svg" />
+    <Content Include="Content\backend\img\favicon.png" />
+    <Content Include="Content\backend\img\illustrations\profiles\profile-1.png" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -143,25 +219,268 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\css\assets\images\icon-img\select.html" />
+    <Content Include="Content\css\fonts\slick-2.html" />
+    <Content Include="Content\css\fonts\slick.html" />
+    <Content Include="Content\css\fonts\slickd41d.html" />
+    <Content Include="Content\css\icons.css" />
+    <Content Include="Content\css\images\icon-img\cart.html" />
+    <Content Include="Content\css\plugins.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\vendors.css" />
+    <Content Include="Content\fonts\ajax-loader.gif" />
+    <Content Include="Content\fonts\la-brands-400.svg" />
+    <Content Include="Content\fonts\la-regular-400.svg" />
+    <Content Include="Content\fonts\la-solid-900.svg" />
+    <Content Include="Content\fonts\remixicondf6d.svg" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont3e6e.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\about\2.png" />
+    <Content Include="images\about\cor-about.png" />
+    <Content Include="images\about\h_about-2.png" />
+    <Content Include="images\about\h_about.png" />
+    <Content Include="images\app\download_app_1.png" />
+    <Content Include="images\app\download_app_2.png" />
+    <Content Include="images\app\mobile.png" />
+    <Content Include="images\banner\banner-2.jpg" />
+    <Content Include="images\banner\breadcurmb.jpg" />
+    <Content Include="images\banner\download_app.png" />
+    <Content Include="images\banner\offer.png" />
+    <Content Include="images\bg\coro-bg-2.png" />
+    <Content Include="images\bg\coro-faq-bg.jpg" />
+    <Content Include="images\blog\latest_post\10.jpg" />
+    <Content Include="images\blog\latest_post\11.jpg" />
+    <Content Include="images\blog\latest_post\4.jpg" />
+    <Content Include="images\blog\latest_post\5.jpg" />
+    <Content Include="images\blog\latest_post\6.jpg" />
+    <Content Include="images\blog\latest_post\7.jpg" />
+    <Content Include="images\blog\latest_post\8.jpg" />
+    <Content Include="images\blog\latest_post\9.jpg" />
+    <Content Include="images\blog\latest_post\author.png" />
+    <Content Include="images\blog\latest_post\author_img_1.png" />
+    <Content Include="images\blog\latest_post\author_img_2.png" />
+    <Content Include="images\blog\latest_post\author_img_3.png" />
+    <Content Include="images\blog\latest_post\cor-3-01.jpg" />
+    <Content Include="images\blog\latest_post\cor-3-02.jpg" />
+    <Content Include="images\blog\latest_post\cor-3-03.jpg" />
+    <Content Include="images\blog\latest_post\gallery.jpg" />
+    <Content Include="images\blog\latest_post\img-1.png" />
+    <Content Include="images\blog\latest_post\img-2.png" />
+    <Content Include="images\blog\latest_post\img-3.png" />
+    <Content Include="images\blog\latest_post\succes-3.png" />
+    <Content Include="images\blog\latest_post\s_post.jpg" />
+    <Content Include="images\blog\sidebar\author_image.png" />
+    <Content Include="images\blog\success\1.jpg" />
+    <Content Include="images\blog\success\2.jpg" />
+    <Content Include="images\brand\1.png" />
+    <Content Include="images\brand\2.png" />
+    <Content Include="images\brand\3.png" />
+    <Content Include="images\brand\4.png" />
+    <Content Include="images\doctor\1.png" />
+    <Content Include="images\doctor\2.png" />
+    <Content Include="images\doctor\2\1.png" />
+    <Content Include="images\doctor\2\2.png" />
+    <Content Include="images\doctor\2\3.png" />
+    <Content Include="images\doctor\2\4.png" />
+    <Content Include="images\doctor\2\5.png" />
+    <Content Include="images\doctor\2\6.png" />
+    <Content Include="images\doctor\3.png" />
+    <Content Include="images\doctor\3\team-01.png" />
+    <Content Include="images\doctor\3\team-02.png" />
+    <Content Include="images\doctor\3\team-03.png" />
+    <Content Include="images\doctor\docotor_single.jpg" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\handwash\pic1.png" />
+    <Content Include="images\handwash\pic2.png" />
+    <Content Include="images\handwash\pic3.png" />
+    <Content Include="images\handwash\pic4.png" />
+    <Content Include="images\handwash\pic5.png" />
+    <Content Include="images\handwash\pic6.png" />
+    <Content Include="images\handwash\pic7.png" />
+    <Content Include="images\handwash\pic8.png" />
+    <Content Include="images\icon-img\payment-methord.png" />
+    <Content Include="images\icon-img\payment.png" />
+    <Content Include="images\icons\cor-service-icon-01.png" />
+    <Content Include="images\icons\cor-service-icon-02.png" />
+    <Content Include="images\icons\cor-service-icon-03.png" />
+    <Content Include="images\icons\cor-service-icon-04.png" />
+    <Content Include="images\icons\cor-service-icon-05.png" />
+    <Content Include="images\icons\cor-service-icon-06.png" />
+    <Content Include="images\icons\coro-arrow-2.png" />
+    <Content Include="images\icons\coro-hero-arrow.png" />
+    <Content Include="images\icons\quote-2.png" />
+    <Content Include="images\icons\send-2.png" />
+    <Content Include="images\icons\send.png" />
+    <Content Include="images\logo\logo-white.png" />
+    <Content Include="images\logo\logo.png" />
+    <Content Include="images\others\appoinment.jpg" />
+    <Content Include="images\others\coro-banner-image-01.png" />
+    <Content Include="images\others\icon\line.png" />
+    <Content Include="images\others\map-coro.png" />
+    <Content Include="images\pattern.png" />
+    <Content Include="images\portfolio\project\1.png" />
+    <Content Include="images\portfolio\project\2.png" />
+    <Content Include="images\portfolio\project\3.png" />
+    <Content Include="images\portfolio\project\bg-project.jpg" />
+    <Content Include="images\portfolio\project\icon-1.png" />
+    <Content Include="images\portfolio\project\ser-cion-2.png" />
+    <Content Include="images\portfolio\project\ser-cion-3.png" />
+    <Content Include="images\Prevention\01.png" />
+    <Content Include="images\Prevention\02.png" />
+    <Content Include="images\Prevention\03.png" />
+    <Content Include="images\Prevention\04.png" />
+    <Content Include="images\Prevention\05.png" />
+    <Content Include="images\Prevention\06.png" />
+    <Content Include="images\Prevention\p-01.png" />
+    <Content Include="images\Prevention\p-02.png" />
+    <Content Include="images\Prevention\p-03.png" />
+    <Content Include="images\Prevention\p-04.png" />
+    <Content Include="images\Prevention\p-05.png" />
+    <Content Include="images\Prevention\p-06.png" />
+    <Content Include="images\Prevention\p-07.png" />
+    <Content Include="images\Prevention\p-08.png" />
+    <Content Include="images\Prevention\p-09.png" />
+    <Content Include="images\Prevention\p-10.png" />
+    <Content Include="images\service\best\banner.jpg" />
+    <Content Include="images\service\icon\ser-cion-2.png" />
+    <Content Include="images\service\icon\ser-cion-3.png" />
+    <Content Include="images\service\icon\ser-cion-4.png" />
+    <Content Include="images\service\icon\ser-cion-5.png" />
+    <Content Include="images\service\icon\ser-cion-6.png" />
+    <Content Include="images\service\icon\ser-cion.png" />
+    <Content Include="images\service\single\1.jpg" />
+    <Content Include="images\service\single\icon-1.png" />
+    <Content Include="images\service\single\icon-2.png" />
+    <Content Include="images\service\single\icon-3.png" />
+    <Content Include="images\service\single\support.jpg" />
+    <Content Include="images\shape\banner-shape.png" />
+    <Content Include="images\shape\icon\h-1.png" />
+    <Content Include="images\shape\icon\h-2.png" />
+    <Content Include="images\shape\icon\h-3.png" />
+    <Content Include="images\slider\cor-hero-slider.png" />
+    <Content Include="images\slider\slider-1.jpg" />
+    <Content Include="images\slider\slider-2.jpg" />
+    <Content Include="images\slider\slider-3.jpg" />
+    <Content Include="images\ui\ui-icons_444444_256x240.png" />
+    <Content Include="images\ui\ui-icons_555555_256x240.png" />
+    <Content Include="images\ui\ui-icons_777620_256x240.png" />
+    <Content Include="images\ui\ui-icons_777777_256x240.png" />
+    <Content Include="images\ui\ui-icons_cc0000_256x240.png" />
+    <Content Include="images\ui\ui-icons_ffffff_256x240.png" />
+    <Content Include="Scripts\backend\js\datatables\datatables-simple-demo.js" />
+    <Content Include="Scripts\backend\js\functions.js" />
+    <Content Include="Scripts\backend\js\litepicker.js" />
+    <Content Include="Scripts\backend\js\markdown.js" />
+    <Content Include="Scripts\backend\js\scripts.js" />
+    <Content Include="Scripts\backend\js\sweetalert.js" />
+    <Content Include="Scripts\backend\js\toastr.js" />
+    <Content Include="Scripts\backend\js\toasts.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.4.1.js" />
-    <Content Include="Scripts\jquery-3.4.1.min.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Content\backend\fonts\metropolis\Metropolis-Black.otf" />
+    <Content Include="Content\backend\fonts\metropolis\Metropolis-BlackItalic.otf" />
+    <Content Include="Content\backend\fonts\metropolis\Metropolis-Bold.otf" />
+    <Content Include="Content\backend\fonts\metropolis\Metropolis-BoldItalic.otf" />
+    <Content Include="Content\backend\fonts\metropolis\Metropolis-ExtraBold.otf" />
+    <Content Include="Content\backend\fonts\metropolis\Metropolis-ExtraBoldItalic.otf" />
+    <Content Include="Content\backend\fonts\metropolis\Metropolis-ExtraLight.otf" />
+    <Content Include="Content\backend\fonts\metropolis\Metropolis-ExtraLightItalic.otf" />
+    <Content Include="Content\backend\fonts\metropolis\Metropolis-Light.otf" />
+    <Content Include="Content\backend\fonts\metropolis\Metropolis-LightItalic.otf" />
+    <Content Include="Content\backend\fonts\metropolis\Metropolis-Medium.otf" />
+    <Content Include="Content\backend\fonts\metropolis\Metropolis-MediumItalic.otf" />
+    <Content Include="Content\backend\fonts\metropolis\Metropolis-Regular.otf" />
+    <Content Include="Content\backend\fonts\metropolis\Metropolis-RegularItalic.otf" />
+    <Content Include="Content\backend\fonts\metropolis\Metropolis-SemiBold.otf" />
+    <Content Include="Content\backend\fonts\metropolis\Metropolis-SemiBoldItalic.otf" />
+    <Content Include="Content\backend\fonts\metropolis\Metropolis-Thin.otf" />
+    <Content Include="Content\backend\fonts\metropolis\Metropolis-ThinItalic.otf" />
+    <Content Include="fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="fonts\Material-Design-Iconic-Fontd1f1.ttf" />
+    <Content Include="fonts\Material-Design-Iconic-Fontd1f1.woff" />
+    <Content Include="fonts\Material-Design-Iconic-Fontd1f1.woff2" />
+    <Content Include="Scripts\jquery-3.6.4.min.map" />
+    <Content Include="Scripts\jquery-3.6.4.slim.min.map" />
+    <None Include="Connected Services\AuthenticationService\AuthenticationService.wsdl" />
+    <None Include="Connected Services\AuthenticationService\AuthenticationService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AuthenticationService\AuthenticationService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AuthenticationService\AuthenticationService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\AuthenticationService\TrackingVaccineClient.AuthenticationService.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ProcedurService\ProcedurService.wsdl" />
+    <None Include="Connected Services\ProcedurService\ProcedurService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProcedurService\ProcedurService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProcedurService\ProcedurService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\ProcedurService\TrackingVaccineClient.ProcedurService.Vaccine.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Content\fonts\la-brands-400.eot" />
+    <Content Include="Content\fonts\la-brands-400.ttf" />
+    <Content Include="Content\fonts\la-brands-400.woff" />
+    <Content Include="Content\fonts\la-brands-400.woff2" />
+    <Content Include="Content\fonts\la-brands-400d41d.eot" />
+    <Content Include="Content\fonts\la-regular-400.eot" />
+    <Content Include="Content\fonts\la-regular-400.ttf" />
+    <Content Include="Content\fonts\la-regular-400.woff" />
+    <Content Include="Content\fonts\la-regular-400.woff2" />
+    <Content Include="Content\fonts\la-regular-400d41d.eot" />
+    <Content Include="Content\fonts\la-solid-900.eot" />
+    <Content Include="Content\fonts\la-solid-900.ttf" />
+    <Content Include="Content\fonts\la-solid-900.woff" />
+    <Content Include="Content\fonts\la-solid-900.woff2" />
+    <Content Include="Content\fonts\la-solid-900d41d.eot" />
+    <Content Include="Content\fonts\remixicondf6d.eot" />
+    <Content Include="Content\fonts\remixicondf6d.ttf" />
+    <Content Include="Content\fonts\remixicondf6d.woff" />
+    <Content Include="Content\fonts\remixicondf6d.woff2" />
+    <Content Include="Content\fonts\slick.ttf" />
+    <Content Include="Content\fonts\slick.woff" />
+    <Content Include="Connected Services\ProcedurService\TrackingVaccineClient.ProcedurService.VaccineUsage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.7.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.7.0.min.map" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <None Include="Scripts\jquery-3.6.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.6.4.js" />
+    <Content Include="Scripts\jquery-3.6.4.min.js" />
+    <Content Include="Scripts\jquery-3.6.4.slim.js" />
+    <Content Include="Scripts\jquery-3.6.4.slim.min.js" />
+    <Content Include="Scripts\jquery-3.7.0.js" />
+    <Content Include="Scripts\jquery-3.7.0.min.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\app.js" />
+    <Content Include="Scripts\js\plugins.js" />
+    <Content Include="Scripts\js\vendors.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -177,6 +496,20 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\BPOM\Vaccine.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Shared\_LayoutBackend.cshtml" />
+    <Content Include="Views\Producer\Create.cshtml" />
+    <Content Include="Views\Producer\Edit.cshtml" />
+    <Content Include="Views\Producer\Index.cshtml" />
+    <Content Include="Views\BPOM\Validate.cshtml" />
+    <Content Include="Views\BPOM\Index.cshtml" />
+    <Content Include="Views\Hospital\Index.cshtml" />
+    <Content Include="Views\Hospital\Arrived.cshtml" />
+    <Content Include="Views\Hospital\Use.cshtml" />
+    <Content Include="Views\Hospital\Used.cshtml" />
+    <Content Include="Views\Hospital\Validate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -206,8 +539,15 @@
     <Content Include="Scripts\bootstrap.esm.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\AuthenticationService\" />
+    <WCFMetadataStorage Include="Connected Services\BPOMService\" />
+    <WCFMetadataStorage Include="Connected Services\GovermentService\" />
+    <WCFMetadataStorage Include="Connected Services\ProcedurService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -237,11 +577,12 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

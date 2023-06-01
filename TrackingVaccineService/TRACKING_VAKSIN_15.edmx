@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TRACKING_VAKSIN_15Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Residents">
+          <Key>
+            <PropertyRef Name="NIK" />
+          </Key>
+          <Property Name="NIK" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="32" />
+          <Property Name="age" Type="int" />
+          <Property Name="address" Type="varchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="32" />
+          <Property Name="password" Type="varchar" MaxLength="32" />
+          <Property Name="role" Type="varchar" MaxLength="16" />
+        </EntityType>
+        <EntityType Name="Vaccine">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="registered_number" Type="varchar" MaxLength="16" />
+          <Property Name="registered_date" Type="date" />
+          <Property Name="code" Type="varchar" MaxLength="16" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="VaccineUsage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vaccine_code" Type="varchar" MaxLength="16" />
+          <Property Name="resident_nik" Type="varchar" MaxLength="16" />
+          <Property Name="used_at" Type="date" />
+        </EntityType>
+        <EntityContainer Name="TRACKING_VAKSIN_15ModelStoreContainer">
+          <EntitySet Name="Residents" EntityType="Self.Residents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vaccine" EntityType="Self.Vaccine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VaccineUsage" EntityType="Self.VaccineUsage" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TRACKING_VAKSIN_15Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Resident">
+          <Key>
+            <PropertyRef Name="NIK" />
+          </Key>
+          <Property Name="NIK" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="age" Type="Int32" />
+          <Property Name="address" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="role" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Vaccine">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="registered_number" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="registered_date" Type="DateTime" Precision="0" />
+          <Property Name="code" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="VaccineUsage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vaccine_code" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="resident_nik" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="used_at" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="TRACKING_VAKSIN_15Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Residents" EntityType="Self.Resident" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Vaccines" EntityType="Self.Vaccine" />
+          <EntitySet Name="VaccineUsages" EntityType="Self.VaccineUsage" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TRACKING_VAKSIN_15ModelStoreContainer" CdmEntityContainer="TRACKING_VAKSIN_15Entities">
+          <EntitySetMapping Name="Residents">
+            <EntityTypeMapping TypeName="TRACKING_VAKSIN_15Model.Resident">
+              <MappingFragment StoreEntitySet="Residents">
+                <ScalarProperty Name="NIK" ColumnName="NIK" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="TRACKING_VAKSIN_15Model.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vaccines">
+            <EntityTypeMapping TypeName="TRACKING_VAKSIN_15Model.Vaccine">
+              <MappingFragment StoreEntitySet="Vaccine">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="registered_number" ColumnName="registered_number" />
+                <ScalarProperty Name="registered_date" ColumnName="registered_date" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VaccineUsages">
+            <EntityTypeMapping TypeName="TRACKING_VAKSIN_15Model.VaccineUsage">
+              <MappingFragment StoreEntitySet="VaccineUsage">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="vaccine_code" ColumnName="vaccine_code" />
+                <ScalarProperty Name="resident_nik" ColumnName="resident_nik" />
+                <ScalarProperty Name="used_at" ColumnName="used_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="91cebecf-0498-437a-adfd-f2eb6c7b9d78" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50061/BPOMService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BPOMService.xsd" MetadataType="Schema" ID="1de32fb7-c8df-49cb-a921-561e90a6c3bc" SourceId="1" SourceUrl="http://localhost:50061/BPOMService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BPOMService1.xsd" MetadataType="Schema" ID="37c63fad-dfa3-49f8-8d5c-e447e80cfedd" SourceId="1" SourceUrl="http://localhost:50061/BPOMService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BPOMService.wsdl" MetadataType="Wsdl" ID="1cdc3312-8c7d-4e5a-8de0-cd6c004736f3" SourceId="1" SourceUrl="http://localhost:50061/BPOMService.svc?wsdl" />
+    <MetadataFile FileName="BPOMService.disco" MetadataType="Disco" ID="e9470f69-8462-48f2-bbf7-1444d0bdf38f" SourceId="1" SourceUrl="http://localhost:50061/BPOMService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

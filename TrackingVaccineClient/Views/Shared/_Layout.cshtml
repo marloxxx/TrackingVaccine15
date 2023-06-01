@@ -4,36 +4,97 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/css/vendors.css")
+    @Styles.Render("~/Content/css/plugins.css")
+    @Styles.Render("~/Content/css/icons.css")
+    @Styles.Render("~/Content/css/style.css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
-            </div>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-container">
+            <img src="images/preloader.png" alt="">
         </div>
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
+    <!-- /Preloader -->
+    <!-- Header -->
+    <header id="topnav" class="defaultscroll sticky">
+        <div class="container">
+            <!-- Logo -->
+            <div>
+                <a class="logo" href="../Home/Index">
+                    <img src="images/logo-dark.png" class="l-dark" height="20" alt="">
+                    <img src="images/logo-light.png" class="l-light" height="20" alt="">
+                </a>
+            </div>
+            <!-- /Online Appointment -->
+            <div class="buy-button">
+                <a href="../Home/Login" class="btn header-btn">
+                    Login
+                </a>
+            </div>
+            <!--/Online Appointment -->
+            <!-- /Logo -->
+            <div class="menu-extras">
+                <div class="menu-item">
+                    <!-- Mobile menu toggle -->
+                    <a class="navbar-toggle">
+                        <div class="lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </a>
+                    <!-- /mobile menu toggle -->
+                </div>
+            </div>
+
+            <div id="navigation">
+                <!-- Navigation Menu -->
+                <ul class="navigation-menu nav-light">
+                    <li>
+                        @Html.ActionLink("Home", "Index", "Home")
+                    </li>
+                    <li>@Html.ActionLink("BPOM", "Vaccine", "BPOM")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+
+
+                </ul>
+                <!-- /Navigation Menu -->
+                </div>
+                <!-- /Navigation -->
+            </div>
+            <!-- /container -->
+        
+    </header>
+    <!-- /Header -->
+
+    @RenderBody()
+    <!-- Footer bottom -->
+    <section class="footer-bottom  pt-60 pb-50 ">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <!-- col -->
+                <div class="col-lg-8 col-md-12">
+                    <ul>
+                        <li>© Copyright 2023 Kelompok 15 All rights reserved.</li> 
+                    </ul>
+                </div>
+                <!-- /col -->
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </section>
+    <!-- /Footer bottom -->
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/js/vendors.js")
+    @Scripts.Render("~/Scripts/js/plugins.js")
+    @Scripts.Render("~/Scripts/js/app.js")
     @RenderSection("scripts", required: false)
 </body>
 </html>

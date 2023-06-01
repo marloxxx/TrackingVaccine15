@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="839a528b-5a7d-4a92-bc0d-17ba76155438" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50061/ProcedurService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ProcedurService.xsd" MetadataType="Schema" ID="02ec1dc8-e094-4aa1-a85e-cac5bd19d8b9" SourceId="1" SourceUrl="http://localhost:50061/ProcedurService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ProcedurService.wsdl" MetadataType="Wsdl" ID="2e4fe5ea-835e-4662-bedd-e2d1a3ef944a" SourceId="1" SourceUrl="http://localhost:50061/ProcedurService.svc?wsdl" />
+    <MetadataFile FileName="ProcedurService.disco" MetadataType="Disco" ID="072bcae2-3594-4abc-b406-c21559d4a607" SourceId="1" SourceUrl="http://localhost:50061/ProcedurService.svc?disco" />
+    <MetadataFile FileName="ProcedurService1.xsd" MetadataType="Schema" ID="d882f1f3-fb9d-4f14-8917-115649461b8c" SourceId="1" SourceUrl="http://localhost:50061/ProcedurService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ProcedurService2.xsd" MetadataType="Schema" ID="9522738f-f94a-4b42-978c-a4765bbbd821" SourceId="1" SourceUrl="http://localhost:50061/ProcedurService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

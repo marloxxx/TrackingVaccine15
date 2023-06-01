@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Register";
+}
+
+
+<!-- Breadcrumb -->
+<section class="bg-half-170 d-table w-100 bg-light" style="background: url('../images/bg/page.png') top center;"
+         id="home">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row mt-5">
+            <!-- /col -->
+            <div class="col-lg-12">
+                <div class="title-heading text-center text-md-center">
+                    <h3>Login</h3>
+                    <nav aria-label="breadcrumb" class="d-inline-block mt-2">
+                        <ul class="breadcrumb mb-0">
+                            <li class="breadcrumb-item"><a href="../Home/Index">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Login</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /col -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</section>
+<!-- /Breadcrumb -->
+<!-- Contact -->
+<section class="contact-section">
+    <!-- Container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row clearfix">
+            <!-- col -->
+            <div class="col-md-12 col-sm-12 form-column">
+                <div class="form-inner">
+                    <h3>Register </h3>
+                    @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { @class = "default-form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="row clearfix">
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                @Html.TextBox("username", null, new { placeholder = "Username" })
+                                @Html.ValidationMessage("username", "", new { @class = "text-danger" })
+                            </div>
+                            
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                @Html.TextBox("password", null, new { placeholder = "Password" })
+                                @Html.ValidationMessage("password", "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                @Html.TextBox("NIK", null, new { placeholder = "NIK" })
+                                @Html.ValidationMessage("NIK", "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                @Html.TextBox("name", null, new { placeholder = "Name" })
+                                @Html.ValidationMessage("name", "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                @Html.TextBox("age", null, new { placeholder = "Age" })
+                                @Html.ValidationMessage("age", "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                @Html.TextArea("address", null, new { placeholder = "Address" })
+                                @Html.ValidationMessage("address", "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
+                                <button class="btn theme-btn" type="submit" name="submit-form">
+                                    Register
+                                </button>
+                            </div>
+                        </div>
+                     }
+                    <!-- login link -->
+                    <div class="login-link text-center">
+                        <p>Already have an account? <a href="../Home/Login">Login</a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- col -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- Container -->
+</section>

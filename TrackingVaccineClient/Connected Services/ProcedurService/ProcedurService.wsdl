@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ProcedurService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:50061/ProcedurService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:50061/ProcedurService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:50061/ProcedurService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TrackingVaccineService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IProcedurService_GetVaccines_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVaccines" />
+  </wsdl:message>
+  <wsdl:message name="IProcedurService_GetVaccines_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVaccinesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProcedurService_GetRegisteredVaccines_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegisteredVaccines" />
+  </wsdl:message>
+  <wsdl:message name="IProcedurService_GetRegisteredVaccines_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegisteredVaccinesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProcedurService_GetRegisteredVaccinesUsage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegisteredVaccinesUsage" />
+  </wsdl:message>
+  <wsdl:message name="IProcedurService_GetRegisteredVaccinesUsage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegisteredVaccinesUsageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProcedurService_GetVaccine_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVaccine" />
+  </wsdl:message>
+  <wsdl:message name="IProcedurService_GetVaccine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVaccineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProcedurService_ValidateRegisteredVaccine_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateRegisteredVaccine" />
+  </wsdl:message>
+  <wsdl:message name="IProcedurService_ValidateRegisteredVaccine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateRegisteredVaccineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProcedurService_create_InputMessage">
+    <wsdl:part name="parameters" element="tns:create" />
+  </wsdl:message>
+  <wsdl:message name="IProcedurService_create_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProcedurService_update_InputMessage">
+    <wsdl:part name="parameters" element="tns:update" />
+  </wsdl:message>
+  <wsdl:message name="IProcedurService_update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProcedurService_delete_InputMessage">
+    <wsdl:part name="parameters" element="tns:delete" />
+  </wsdl:message>
+  <wsdl:message name="IProcedurService_delete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProcedurService_send_InputMessage">
+    <wsdl:part name="parameters" element="tns:send" />
+  </wsdl:message>
+  <wsdl:message name="IProcedurService_send_OutputMessage">
+    <wsdl:part name="parameters" element="tns:sendResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IProcedurService">
+    <wsdl:operation name="GetVaccines">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProcedurService/GetVaccines" message="tns:IProcedurService_GetVaccines_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProcedurService/GetVaccinesResponse" message="tns:IProcedurService_GetVaccines_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegisteredVaccines">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProcedurService/GetRegisteredVaccines" message="tns:IProcedurService_GetRegisteredVaccines_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProcedurService/GetRegisteredVaccinesResponse" message="tns:IProcedurService_GetRegisteredVaccines_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegisteredVaccinesUsage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProcedurService/GetRegisteredVaccinesUsage" message="tns:IProcedurService_GetRegisteredVaccinesUsage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProcedurService/GetRegisteredVaccinesUsageResponse" message="tns:IProcedurService_GetRegisteredVaccinesUsage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVaccine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProcedurService/GetVaccine" message="tns:IProcedurService_GetVaccine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProcedurService/GetVaccineResponse" message="tns:IProcedurService_GetVaccine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateRegisteredVaccine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProcedurService/ValidateRegisteredVaccine" message="tns:IProcedurService_ValidateRegisteredVaccine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProcedurService/ValidateRegisteredVaccineResponse" message="tns:IProcedurService_ValidateRegisteredVaccine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="create">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProcedurService/create" message="tns:IProcedurService_create_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProcedurService/createResponse" message="tns:IProcedurService_create_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProcedurService/update" message="tns:IProcedurService_update_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProcedurService/updateResponse" message="tns:IProcedurService_update_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProcedurService/delete" message="tns:IProcedurService_delete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProcedurService/deleteResponse" message="tns:IProcedurService_delete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="send">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProcedurService/send" message="tns:IProcedurService_send_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProcedurService/sendResponse" message="tns:IProcedurService_send_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IProcedurService" type="tns:IProcedurService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetVaccines">
+      <soap:operation soapAction="http://tempuri.org/IProcedurService/GetVaccines" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegisteredVaccines">
+      <soap:operation soapAction="http://tempuri.org/IProcedurService/GetRegisteredVaccines" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegisteredVaccinesUsage">
+      <soap:operation soapAction="http://tempuri.org/IProcedurService/GetRegisteredVaccinesUsage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVaccine">
+      <soap:operation soapAction="http://tempuri.org/IProcedurService/GetVaccine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateRegisteredVaccine">
+      <soap:operation soapAction="http://tempuri.org/IProcedurService/ValidateRegisteredVaccine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="create">
+      <soap:operation soapAction="http://tempuri.org/IProcedurService/create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <soap:operation soapAction="http://tempuri.org/IProcedurService/update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <soap:operation soapAction="http://tempuri.org/IProcedurService/delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="send">
+      <soap:operation soapAction="http://tempuri.org/IProcedurService/send" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProcedurService">
+    <wsdl:port name="BasicHttpBinding_IProcedurService" binding="tns:BasicHttpBinding_IProcedurService">
+      <soap:address location="http://localhost:50061/ProcedurService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

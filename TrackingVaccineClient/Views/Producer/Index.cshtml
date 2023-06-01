@@ -1,0 +1,173 @@
+﻿@model TrackingVaccineClient.ProcedurService.Vaccine[]
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_LayoutBackend.cshtml";
+}
+
+<main>
+    <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
+        <div class="container-xl px-4">
+            <div class="page-header-content pt-4">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto mt-4">
+                        <h1 class="page-header-title">
+                            <div class="page-header-icon">
+                                <i data-feather="activity"></i>
+                            </div>
+                            List Vaccine
+                        </h1>
+                        <div class="page-header-subtitle">
+                            List Vaccine
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-auto mt-4">
+                        <div class="btn-group">
+                            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-white btn-sm" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main page content-->
+    <div class="container-xl px-4 mt-n10">
+        <div class="card mb-4">
+            <div class="card-header">List Vaccine</div>
+            <div class="card-body">
+                <table id="datatables" class="table" style="width: 100%">
+                    <thead>
+                        <tr>
+                            <th>ID Vaccine</th>
+                            <th>Nama</th>
+                            <th>Registered Number</th>
+                            <th>Registered Code</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.id</td>
+                                <td>@item.code</td>
+                                <td>@item.registered_number</td>
+                                <td>@item.registered_date</td>
+                                <td>
+                                    @if (item.status == 0)
+                                    {
+                                        <span class="badge bg-warning">Not Verified</span>
+                                    }
+                                    else if (item.status == 1)
+                                    {
+                                        <span class="badge bg-success">Verified</span>
+                                    }
+                                    else if (item.status == 2)
+                                    {
+                                        <span class="badge bg-info">Send</span>
+                                    }
+                                    else if (item.status == 3)
+                                    {
+                                        <span class="badge bg-success">Arrived</span>
+                                    }
+                                    else if (item.status == 4)
+                                    {
+                                        <span class="badge bg-primary">Used</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.status == 0)
+                                    {
+                                        <a href="#" class="btn btn-success" onclick="sweetAlertVerify('@item.id')">Verify</a>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-warning" })
+                                        <a href="#" class="btn btn-danger" onclick="sweetAlertDelete('@item.id')">Delete</a>
+                                    }
+                                    else if (item.status == 1)
+                                    {
+                                        <a href="#" class="btn btn-success" onclick="sweetAlertSend('@item.id')">Send</a>
+                                    }
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+@section scripts{
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @if (Session["success"] != null)
+    {
+        <script>
+            swal({
+                title: "Success",
+                text: "@Session["success"]",
+                icon: "success",
+                button: "ok"
+            }).then((value) => {
+                $.ajax({
+                    url: "/Producer/RemoveSession",
+                    type: "GET",
+                    success: function (response) {
+                        console.log(response);
+                    }
+                })
+            });
+        </script>
+     }
+    <script>
+        function sweetAlertDelete(id) {
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this data!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+
+                    if (willDelete) {
+                        window.location.href = "/Producer/Delete/" + id;
+                    } else {
+                        swal("Delete canceled!");
+                    }
+                });
+        }
+        function sweetAlertVerify(id) {
+            swal({
+                title: "Are you sure?",
+                text: "Once Verify, you will not be able to recover this data!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willVerify) => {
+
+                    if (willVerify) {
+                        window.location.href = "/Producer/Verify/" + id;
+                    } else {
+                        swal("Verify canceled!");
+                    }
+                });
+        }
+        function sweetAlertSend(id) {
+            swal({
+                title: "Are you sure?",
+                text: "Once Send, you will not be able to recover this data!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willSend) => {
+
+                    if (willSend) {
+                        window.location.href = "/Producer/Send/" + id;
+                    } else {
+                        swal("Send canceled!");
+                    }
+                });
+        }
+    </script>
+}

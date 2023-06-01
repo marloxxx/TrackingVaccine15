@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackingVaccineService", "TrackingVaccineService\TrackingVaccineService.csproj", "{677D5708-F077-43D1-B627-695E05BA5198}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackingVaccineClient", "TrackingVaccineClient\TrackingVaccineClient.csproj", "{A1F458D2-632A-40CE-B8CE-9D754BF570AD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{677D5708-F077-43D1-B627-695E05BA5198} = {677D5708-F077-43D1-B627-695E05BA5198}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
